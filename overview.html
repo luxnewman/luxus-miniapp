@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>LUXUS & SPIRITON — все экраны</title>
+<style>
+:root{--pink:#ff36ca}
+body{margin:0;background:#09090b;color:#fff;font-family:Arial,Helvetica,sans-serif;padding:28px 24px 60px}
+h1{font-size:26px;margin:0 0 6px;letter-spacing:-.5px} p{color:#a6a2a8;margin:0 0 26px;font-size:13px}
+h2{font-size:12px;letter-spacing:2px;color:var(--pink);text-transform:uppercase;margin:34px 0 14px}
+.grid{display:flex;flex-wrap:wrap;gap:22px}
+figure{margin:0;width:264px}
+figcaption{font-size:12px;color:#c4bec7;margin-bottom:8px}
+.frame{width:264px;height:572px;border:1px solid #363039;border-radius:22px;overflow:hidden;background:#101014}
+iframe{width:390px;height:844px;border:0;transform:scale(.677);transform-origin:0 0}
+</style>
+</head>
+<body>
+<h1>LUXUS & SPIRITON — все экраны</h1>
+<p>Каждый экран живой: по нему можно кликать. Размер — iPhone 14/15/16 (390×844), уменьшено.</p>
+<div id="app"></div>
+<script>
+const groups = [
+  ['Знакомство', [['welcome','01 Приветствие'],['form','02 Анкета'],['thanks','03 Спасибо'],['phone','04 Телефон'],['ready','05 Вход']]],
+  ['Приложение', [['home','Главная'],['dresscode','Дресс-код'],['tickets','Мой билет'],['events','Ивенты'],['detail','Карточка ивента'],['checkout','Оформление']]],
+];
+document.getElementById('app').innerHTML = groups.map(([g, items]) =>
+  `<h2>${g}</h2><div class="grid">` + items.map(([id, t]) =>
+    `<figure><figcaption>${t}</figcaption><div class="frame"><iframe loading="lazy" src="./?screen=${id}" title="${t}"></iframe></div></figure>`).join('') + '</div>').join('');
+</script>
+</body>
+</html>
